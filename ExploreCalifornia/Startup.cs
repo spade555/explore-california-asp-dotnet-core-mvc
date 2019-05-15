@@ -32,10 +32,7 @@ namespace ExploreCalifornia
                 await next();
             });
 
-            app.Use(async (context, next) =>
-            {
-                await context.Response.WriteAsync("Hello World!");
-            });
+            app.UseFileServer();
         }
     }
 }
