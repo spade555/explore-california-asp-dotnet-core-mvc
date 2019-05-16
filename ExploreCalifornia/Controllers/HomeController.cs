@@ -11,9 +11,10 @@ namespace ExploreCalifornia.Controllers
     public class HomeController 
     {
         // GET: /<controller>/
-        public string Index()
+        public IActionResult Index()
         {
-            return "The controllers do not need to be derived from Controller class at all.";
+            return new ContentResult { Content = "In the previous case ASP.NET Core MVC converted our string into a ContentResult." };
+            // return "The controllers do not need to be derived from Controller class at all.";
         }
     }
 }
