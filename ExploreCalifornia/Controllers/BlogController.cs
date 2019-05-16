@@ -16,7 +16,7 @@ namespace ExploreCalifornia.Controllers
             };
         }
 
-        public IActionResult Post(string id)
+        public IActionResult Post(int id)
         {
             return new ContentResult
             {
