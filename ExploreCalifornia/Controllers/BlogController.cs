@@ -16,11 +16,12 @@ namespace ExploreCalifornia.Controllers
             };
         }
 
-        public IActionResult Post(int id = -1)
+        [Route("blog/{year:min(2012)}/{month:range(1,12)}/{key}")]
+        public IActionResult Post(int year, int month, string key)
         {
             return new ContentResult
             {
-                Content = "The action parameters are extracted based on their name. Now Id is " + id + "."
+                Content = $"Year: {year}, Month: {month}, Key: {key}"
             };
         }
     }
