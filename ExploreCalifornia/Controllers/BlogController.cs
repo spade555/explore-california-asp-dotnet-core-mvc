@@ -6,6 +6,7 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ExploreCalifornia.Controllers
 {
+    [Route("blog")]
     public class BlogController : Controller
     {
         public IActionResult Index()
@@ -16,7 +17,7 @@ namespace ExploreCalifornia.Controllers
             };
         }
 
-        [Route("blog/{year:min(2012)}/{month:range(1,12)}/{key}")]
+        [Route("{year:min(2012)}/{month:range(1,12)}/{key}")]
         public IActionResult Post(int year, int month, string key)
         {
             return new ContentResult
