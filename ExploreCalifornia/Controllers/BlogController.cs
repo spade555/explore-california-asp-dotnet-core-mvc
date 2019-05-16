@@ -15,5 +15,13 @@ namespace ExploreCalifornia.Controllers
                 Content = "In ASP.NET MVC every controller action returns an ActionResult."
             };
         }
+
+        public IActionResult Post(string id)
+        {
+            return new ContentResult
+            {
+                Content = "The action parameters are extracted based on their name. Now Id is " + id + "."
+            };
+        }
     }
 }
