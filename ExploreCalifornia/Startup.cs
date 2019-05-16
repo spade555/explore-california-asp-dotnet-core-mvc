@@ -30,7 +30,7 @@ namespace ExploreCalifornia
         {
             app.UseExceptionHandler("/error.html");
 
-            if (env.IsDevelopment())
+            if (_configuration["EnableDeveloperException"] == "True")
             {
                 app.UseDeveloperExceptionPage();
             }
