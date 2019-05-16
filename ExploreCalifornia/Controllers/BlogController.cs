@@ -16,8 +16,11 @@ namespace ExploreCalifornia.Controllers
             };
         }
 
-        public IActionResult Post(int id)
+        public IActionResult Post(int? id)
         {
+            if (id == null)
+                return new ContentResult{Content = "null"};
+
             return new ContentResult
             {
                 Content = "The action parameters are extracted based on their name. Now Id is " + id + "."
