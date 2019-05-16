@@ -8,13 +8,12 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace ExploreCalifornia.Controllers
 {
-    public class HomeController 
+    public class HomeController : Controller
     {
         // GET: /<controller>/
         public IActionResult Index()
         {
-            return new ContentResult { Content = "In the previous case ASP.NET Core MVC converted our string into a ContentResult." };
-            // return "The controllers do not need to be derived from Controller class at all.";
+            return View();
         }
     }
 }
