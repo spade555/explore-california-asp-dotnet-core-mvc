@@ -27,6 +27,7 @@ namespace ExploreCalifornia
             {
                 DeveloperException = _configuration.GetValue<bool>("FeatureToggles:EnableDeveloperException")
             });
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
