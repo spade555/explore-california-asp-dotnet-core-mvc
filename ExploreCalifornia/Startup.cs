@@ -23,7 +23,10 @@ namespace ExploreCalifornia
         // For more information on how to configure your application, visit https://go.microsoft.com/fwlink/?LinkID=398940
         public void ConfigureServices(IServiceCollection services)
         {
-            services.AddTransient<FeatureToggles>();
+            services.AddTransient<FeatureToggles>(x => new FeatureToggles
+            {
+                DeveloperException = _configuration.GetValue<bool>("FeatureToggles:EnableDeveloperException")
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
