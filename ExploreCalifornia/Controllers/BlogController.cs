@@ -10,6 +10,12 @@ namespace ExploreCalifornia.Controllers
     [Route("blog")]
     public class BlogController : Controller
     {
+        private readonly BlogDataContext _db;
+
+        public BlogController(BlogDataContext db)
+        {
+            _db = db;
+        }
         public IActionResult Index()
         {
             return View();
