@@ -1,11 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Threading.Tasks;
-using ExploreCalifornia.Models;
-using Microsoft.EntityFrameworkCore;
+﻿using Microsoft.EntityFrameworkCore;
 
-namespace ExploreCalifornia.Views.Blog
+namespace ExploreCalifornia.Models
 {
     public class BlogDataContext : DbContext
     {
