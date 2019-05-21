@@ -37,6 +37,8 @@ namespace ExploreCalifornia.Controllers
         [HttpPost, Route("create")]
         public IActionResult Create(Post post)
         {
+            post.Posted = DateTime.Now;
+            post.Author = User.Identity.Name;
             return View();
         }
     }
