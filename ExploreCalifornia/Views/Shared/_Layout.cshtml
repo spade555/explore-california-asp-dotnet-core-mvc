@@ -57,7 +57,14 @@
     </nav>
   </header>
   <section id="actionCall">
-    @RenderSection("header", false)
+      @if (IsSectionDefined("header"))
+      {
+          @RenderSection("header", false)
+      }
+      else
+      {
+          <h1>Explore our World!</h1>
+      }
   </section>
   <div id="contentWrapper">
       <section id="mainContent">
