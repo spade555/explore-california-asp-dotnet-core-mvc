@@ -10,5 +10,10 @@ namespace ExploreCalifornia.Views.Blog
     public class BlogDataContext : DbContext
     {
         public DbSet<Post> Posts { get; set; }
+
+        public BlogDataContext(DbContextOptions<BlogDataContext> options) : base(options)
+        {
+            
+        }
     }
 }
