@@ -13,7 +13,7 @@ namespace ExploreCalifornia.Views.Blog
 
         public BlogDataContext(DbContextOptions<BlogDataContext> options) : base(options)
         {
-            
+            Database.EnsureCreated();
         }
     }
 }
