@@ -47,7 +47,12 @@ namespace ExploreCalifornia.Controllers
             _db.Posts.Add(post);
             _db.SaveChanges();
 
-            return View();
+            return RedirectToAction("Post", "Blog", new
+            {
+                year = post.Posted.Year,
+                month = post.Posted.Month,
+                key = post.Key
+            });
         }
     }
 }
