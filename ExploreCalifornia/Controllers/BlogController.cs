@@ -48,6 +48,10 @@ namespace ExploreCalifornia.Controllers
 
             post.Posted = DateTime.Now;
             post.Author = User.Identity.Name;
+
+            _db.Posts.Add(post);
+            _db.SaveChanges();
+
             return View();
         }
     }
