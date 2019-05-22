@@ -11,10 +11,12 @@ namespace ExploreCalifornia.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly SignInManager<IdentityUser> _signinManager;
         private readonly UserManager<IdentityUser> _userManager;
 
-        public AccountController(UserManager<IdentityUser> userManager)
+        public AccountController(UserManager<IdentityUser> userManager, SignInManager<IdentityUser> signinManager)
         {
+            _signinManager = signinManager;
             _userManager = userManager;
         }
 
