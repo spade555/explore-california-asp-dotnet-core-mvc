@@ -55,6 +55,8 @@ namespace ExploreCalifornia
                 await next();
             });
 
+            app.UseAuthentication();
+
             app.UseMvc(routes =>
             {
                 routes.MapRoute("Default", "{controller=Home}/{action=Index}/{id?}");
