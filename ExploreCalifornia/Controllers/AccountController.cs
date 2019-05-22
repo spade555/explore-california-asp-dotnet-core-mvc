@@ -50,6 +50,17 @@ namespace ExploreCalifornia.Controllers
             return Redirect(returnUrl);
         }
 
+        [HttpPost]
+        public async Task<IActionResult> Logout(string returnUrl = null)
+        {
+            await _signinManager.SignOutAsync();
+
+            if (string.IsNullOrWhiteSpace(returnUrl))
+                return RedirectToAction("Index", "Home");
+
+            return Redirect(returnUrl);
+        }
+
         public IActionResult Register()
         {
             return View(new RegisterViewModel());
