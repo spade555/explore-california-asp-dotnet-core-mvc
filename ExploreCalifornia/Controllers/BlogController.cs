@@ -37,6 +37,8 @@ namespace ExploreCalifornia.Controllers
                     .Take(pageSize)
                     .ToArray();
 
+            // determine here if the request is an AJAX call or not
+            // if yes, we only render the partialview and skip this way the ViewStart
             if (Request.Headers["X-Requested-With"] == "XMLHttpRequest")
                 return PartialView(posts);
 
