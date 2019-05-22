@@ -3,6 +3,7 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using ExploreCalifornia.Models;
 
 namespace ExploreCalifornia.ViewComponents
 {
@@ -10,9 +11,17 @@ namespace ExploreCalifornia.ViewComponents
     [ViewComponent]
     public class MonthlySpecialsViewComponent : ViewComponent
     {
+        private readonly BlogDataContext _db;
+
+        public MonthlySpecialsViewComponent(BlogDataContext db)
+        {
+            this._db = db;
+        }
+
         public IViewComponentResult Invoke()
         {
-            return View();
+            var specials = _db.MonthlySpecials.ToArray();
+            return View(specials);
         }
     }
 }
