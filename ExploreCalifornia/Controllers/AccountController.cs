@@ -20,6 +20,36 @@ namespace ExploreCalifornia.Controllers
             _userManager = userManager;
         }
 
+        public IActionResult Login()
+        {
+            return View(new LoginViewModel());
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> Login(LoginViewModel login, string returnUrl = null)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+
+            var result = await _signinManager.PasswordSignInAsync(
+                login.EmailAddress, login.Password,
+                login.RememberMe, false
+            );
+
+            if (!result.Succeeded)
+            {
+                ModelState.AddModelError("", "Login error!");
+                return View();
+            }
+
+            if (string.IsNullOrWhiteSpace(returnUrl))
+                return RedirectToAction("Index", "Home");
+
+            return Redirect(returnUrl);
+        }
+
         public IActionResult Register()
         {
             return View(new RegisterViewModel());
