@@ -38,6 +38,11 @@ namespace ExploreCalifornia
                 var connectionString = _configuration.GetConnectionString("BlogDataContext");
                 options.UseSqlServer(connectionString);
             });
+            services.AddDbContext<IdentityDataContext>(options =>
+            {
+                var connectionString = _configuration.GetConnectionString("IdentityDataContext");
+                options.UseSqlServer(connectionString);
+            });
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
