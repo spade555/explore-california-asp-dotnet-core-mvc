@@ -31,7 +31,7 @@ namespace ExploreCalifornia
             {
                 DeveloperException = _configuration.GetValue<bool>("FeatureToggles:EnableDeveloperException")
             });
-            services.AddIdentity<IdentityUser, IdentityRole>();
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<IdentityDataContext>();
             services.AddMvc();
             services.AddDbContext<BlogDataContext>(options =>
             {
