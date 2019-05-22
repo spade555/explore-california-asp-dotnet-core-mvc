@@ -31,8 +31,7 @@ namespace ExploreCalifornia
             {
                 DeveloperException = _configuration.GetValue<bool>("FeatureToggles:EnableDeveloperException")
             });
-            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<IdentityDataContext>();
-            services.AddMvc();
+            
             services.AddDbContext<BlogDataContext>(options =>
             {
                 var connectionString = _configuration.GetConnectionString("BlogDataContext");
@@ -43,6 +42,9 @@ namespace ExploreCalifornia
                 var connectionString = _configuration.GetConnectionString("IdentityDataContext");
                 options.UseSqlServer(connectionString);
             });
+
+            services.AddIdentity<IdentityUser, IdentityRole>().AddEntityFrameworkStores<IdentityDataContext>();
+            services.AddMvc();
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
