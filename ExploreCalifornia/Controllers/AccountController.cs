@@ -11,6 +11,13 @@ namespace ExploreCalifornia.Controllers
 {
     public class AccountController : Controller
     {
+        private readonly UserManager<IdentityUser> _userManager;
+
+        public AccountController(UserManager<IdentityUser> userManager)
+        {
+            _userManager = userManager;
+        }
+
         public IActionResult Register()
         {
             return View(new RegisterViewModel());
