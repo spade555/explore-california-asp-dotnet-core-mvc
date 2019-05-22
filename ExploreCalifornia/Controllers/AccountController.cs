@@ -35,9 +35,19 @@ namespace ExploreCalifornia.Controllers
                 UserName = registration.EmailAddress,
             };
 
-            // TODO: Finish registering the user
+            var result = await _userManager.CreateAsync(newUser, registration.Password);
 
-            return View();
+            if (!result.Succeeded)
+            {
+                foreach (var error in result.Errors.Select(x => x.Description))
+                {
+                    ModelState.AddModelError("", error);
+                }
+
+                return View();
+            }
+
+            return RedirectToAction("Login");
         }
     }
 }
