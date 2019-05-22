@@ -10,9 +10,9 @@ namespace ExploreCalifornia.ViewComponents
     [ViewComponent]
     public class MonthlySpecialsViewComponent : ViewComponent
     {
-        public string Invoke()
+        public IViewComponentResult Invoke()
         {
-            return "TODO: monthly specials";
+            return View();
         }
     }
 }
